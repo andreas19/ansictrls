@@ -1,0 +1,921 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API Reference &#8212; ansictrls 0.0.10 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ansictrls</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="license.html" title="next chapter">License</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.CS" title="ansictrls.CS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CS</span></code></a></td>
+<td>Command sequences.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SGR</span></code></a></td>
+<td>SGR attributes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.EraseMode" title="ansictrls.EraseMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EraseMode</span></code></a></td>
+<td>Mode parameter for <a class="reference internal" href="#ansictrls.erase" title="ansictrls.erase"><code class="xref py py-func docutils literal notranslate"><span class="pre">erase()</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.erase" title="ansictrls.erase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">erase</span></code></a></td>
+<td>Erase all or part of line/screen (cursor position does not change).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.move" title="ansictrls.move"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move</span></code></a></td>
+<td>Move the cursor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.home" title="ansictrls.home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">home</span></code></a></td>
+<td>Move the cursor to the top left corner of the screen.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.hide_cursor" title="ansictrls.hide_cursor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hide_cursor</span></code></a></td>
+<td>Hide the cursor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.nestable_save_pos_possible" title="ansictrls.nestable_save_pos_possible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nestable_save_pos_possible</span></code></a></td>
+<td>Return if nestable <a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_pos()</span></code></a> context is supported.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_pos</span></code></a></td>
+<td>Save the cursor position.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.alternate_screen" title="ansictrls.alternate_screen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alternate_screen</span></code></a></td>
+<td>Use the <a class="reference external" href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-The-Alternate-Screen-Buffer">alternate screen buffer</a>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fg</span></code></a></td>
+<td>Return SGR parameters for foreground <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bg</span></code></a></td>
+<td>Return SGR parameters for background <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_string</span></code></a></td>
+<td>Build a string with SGR control sequences.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_print</span></code></a></td>
+<td>Print a string with SGR control sequences.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.text" title="ansictrls.text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code></a></td>
+<td>Return the plain text without the SGR control sequences.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.len_diff" title="ansictrls.len_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">len_diff</span></code></a></td>
+<td>Return the difference between <code class="docutils literal notranslate"><span class="pre">len(s)</span></code> and <code class="docutils literal notranslate"><span class="pre">len(text(s))</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.set_attributes_delimiters" title="ansictrls.set_attributes_delimiters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_attributes_delimiters</span></code></a></td>
+<td>Set the delimiters for attributes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.parse" title="ansictrls.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a></td>
+<td>Parse the <a class="reference internal" href="introduction.html#ref-intro-spec"><span class="std std-ref">specification string</span></a>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="ansictrls.CS">
+<em class="property">class </em><code class="descclassname">ansictrls.</code><code class="descname">CS</code><a class="headerlink" href="#ansictrls.CS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The attributes of this class are <a class="reference internal" href="introduction.html"><span class="doc">control sequences</span></a>.
+Most of them can take parameters. Their meaning and number is explained
+in the documentation of the attributes. The default value for
+<a class="reference internal" href="#ansictrls.CS.ED" title="ansictrls.CS.ED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ED</span></code></a>, <a class="reference internal" href="#ansictrls.CS.EL" title="ansictrls.CS.EL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">EL</span></code></a> and <a class="reference internal" href="#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SGR</span></code></a> is <code class="docutils literal notranslate"><span class="pre">0</span></code>. For the others it is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>The attributes support the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>); the result is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.
+The right operand can be a single value or a tuple of values. The attributes
+can also be used as strings which is the same as using an empty tuple with
+the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">CUU</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="go">&#39;\x1b[3A&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">CUP</span> <span class="o">%</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;\x1b[4;2H&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">CUP</span> <span class="o">%</span> <span class="p">()</span>
+<span class="go">&#39;\x1b[H&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">CS</span><span class="o">.</span><span class="n">CUP</span><span class="p">)</span>
+<span class="go">&#39;\x1b[H&#39;</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="ansictrls.CS.ICH">
+<code class="descname">ICH</code><a class="headerlink" href="#ansictrls.CS.ICH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert <code class="docutils literal notranslate"><span class="pre">N</span></code> space characters</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CUU">
+<code class="descname">CUU</code><a class="headerlink" href="#ansictrls.CS.CUU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> rows up</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CUD">
+<code class="descname">CUD</code><a class="headerlink" href="#ansictrls.CS.CUD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> rows down</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CUF">
+<code class="descname">CUF</code><a class="headerlink" href="#ansictrls.CS.CUF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> columns foreward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CUB">
+<code class="descname">CUB</code><a class="headerlink" href="#ansictrls.CS.CUB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> columns backward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CNL">
+<code class="descname">CNL</code><a class="headerlink" href="#ansictrls.CS.CNL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to beginning of line <code class="docutils literal notranslate"><span class="pre">N</span></code> rows down</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CPL">
+<code class="descname">CPL</code><a class="headerlink" href="#ansictrls.CS.CPL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to beginning of line <code class="docutils literal notranslate"><span class="pre">N</span></code> rows up</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CHA">
+<code class="descname">CHA</code><a class="headerlink" href="#ansictrls.CS.CHA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to column <code class="docutils literal notranslate"><span class="pre">N</span></code> in current row</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CUP">
+<code class="descname">CUP</code><a class="headerlink" href="#ansictrls.CS.CUP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to the absolute position <code class="docutils literal notranslate"><span class="pre">N,M</span></code> (row <code class="docutils literal notranslate"><span class="pre">N</span></code>, column <code class="docutils literal notranslate"><span class="pre">M</span></code>)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CHT">
+<code class="descname">CHT</code><a class="headerlink" href="#ansictrls.CS.CHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> tab stops forward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.ED">
+<code class="descname">ED</code><a class="headerlink" href="#ansictrls.CS.ED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase in display (cursor position does not change).</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">N=0</span></code>: From cursor to end of screen</li>
+<li><code class="docutils literal notranslate"><span class="pre">N=1</span></code>: From cursor to beginning of screen</li>
+<li><code class="docutils literal notranslate"><span class="pre">N=2</span></code>: Entire screen</li>
+<li><code class="docutils literal notranslate"><span class="pre">N=3</span></code>: All lines in scrollback buffer</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.EL">
+<code class="descname">EL</code><a class="headerlink" href="#ansictrls.CS.EL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase in line (cursor position does not change).</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">N=0</span></code>: From cursor to end of line</li>
+<li><code class="docutils literal notranslate"><span class="pre">N=1</span></code>: From cursor to beginning of line</li>
+<li><code class="docutils literal notranslate"><span class="pre">N=2</span></code>: Entire line</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.IL">
+<code class="descname">IL</code><a class="headerlink" href="#ansictrls.CS.IL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert <code class="docutils literal notranslate"><span class="pre">N</span></code> rows</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.DL">
+<code class="descname">DL</code><a class="headerlink" href="#ansictrls.CS.DL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete <code class="docutils literal notranslate"><span class="pre">N</span></code> rows</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.DCH">
+<code class="descname">DCH</code><a class="headerlink" href="#ansictrls.CS.DCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete <code class="docutils literal notranslate"><span class="pre">N</span></code> characters</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.SU">
+<code class="descname">SU</code><a class="headerlink" href="#ansictrls.CS.SU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll page <code class="docutils literal notranslate"><span class="pre">N</span></code> rows up (add new lines at bottom)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.SD">
+<code class="descname">SD</code><a class="headerlink" href="#ansictrls.CS.SD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll page <code class="docutils literal notranslate"><span class="pre">N</span></code> rows down (add new lines at top)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.ECH">
+<code class="descname">ECH</code><a class="headerlink" href="#ansictrls.CS.ECH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase <code class="docutils literal notranslate"><span class="pre">N</span></code> characters</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.CBT">
+<code class="descname">CBT</code><a class="headerlink" href="#ansictrls.CS.CBT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor <code class="docutils literal notranslate"><span class="pre">N</span></code> tab stops backward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.HPA">
+<code class="descname">HPA</code><a class="headerlink" href="#ansictrls.CS.HPA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to column <code class="docutils literal notranslate"><span class="pre">N</span></code> in current row</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.VPA">
+<code class="descname">VPA</code><a class="headerlink" href="#ansictrls.CS.VPA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to row <code class="docutils literal notranslate"><span class="pre">N</span></code> in current column</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.SGR">
+<code class="descname">SGR</code><a class="headerlink" href="#ansictrls.CS.SGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select graphic rendition. This control sequence can take
+<a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters">multiple parameters</a>.
+It is more convenient to use the attributes of the <a class="reference internal" href="#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-class docutils literal notranslate"><span class="pre">SGR</span></code></a> class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.SCP">
+<code class="descname">SCP</code><a class="headerlink" href="#ansictrls.CS.SCP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save cursor position</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.RCP">
+<code class="descname">RCP</code><a class="headerlink" href="#ansictrls.CS.RCP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore cursor position</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.SCU">
+<code class="descname">SCU</code><a class="headerlink" href="#ansictrls.CS.SCU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show cursor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.HCU">
+<code class="descname">HCU</code><a class="headerlink" href="#ansictrls.CS.HCU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide cursor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.EAS">
+<code class="descname">EAS</code><a class="headerlink" href="#ansictrls.CS.EAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable alternate screen buffer</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.DAS">
+<code class="descname">DAS</code><a class="headerlink" href="#ansictrls.CS.DAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable alternate screen buffer</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.CS.RIS">
+<code class="descname">RIS</code><a class="headerlink" href="#ansictrls.CS.RIS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset screen to initial state</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ansictrls.SGR">
+<em class="property">class </em><code class="descclassname">ansictrls.</code><code class="descname">SGR</code><a class="headerlink" href="#ansictrls.SGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>The attributes of this class are <a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters">parameters</a>
+for <a class="reference internal" href="#ansictrls.CS.SGR" title="ansictrls.CS.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CS.SGR</span></code></a> and the <a class="reference internal" href="#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">sgr_string()</span></code></a> and <a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">sgr_print()</span></code></a> functions. They support
+the <code class="docutils literal notranslate"><span class="pre">~</span></code> unary operator. For attributes like <a class="reference internal" href="#ansictrls.SGR.Bold" title="ansictrls.SGR.Bold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Bold</span></code></a> this means that it will be
+switched off; for <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">colors</span></a> that <em>bright</em> colors are used.</p>
+<dl class="attribute">
+<dt id="ansictrls.SGR.Bold">
+<code class="descname">Bold</code><a class="headerlink" href="#ansictrls.SGR.Bold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>bold</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Faint">
+<code class="descname">Faint</code><a class="headerlink" href="#ansictrls.SGR.Faint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>faint</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Italic">
+<code class="descname">Italic</code><a class="headerlink" href="#ansictrls.SGR.Italic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>italic</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Underlined">
+<code class="descname">Underlined</code><a class="headerlink" href="#ansictrls.SGR.Underlined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>underlined</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Blink">
+<code class="descname">Blink</code><a class="headerlink" href="#ansictrls.SGR.Blink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>blink</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Inverse">
+<code class="descname">Inverse</code><a class="headerlink" href="#ansictrls.SGR.Inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>inverse</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Crossedout">
+<code class="descname">Crossedout</code><a class="headerlink" href="#ansictrls.SGR.Crossedout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>crossedout</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Overlined">
+<code class="descname">Overlined</code><a class="headerlink" href="#ansictrls.SGR.Overlined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>overlined</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.Reset">
+<code class="descname">Reset</code><a class="headerlink" href="#ansictrls.SGR.Reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute <em>reset</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgBlack">
+<code class="descname">FgBlack</code><a class="headerlink" href="#ansictrls.SGR.FgBlack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>black</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgRed">
+<code class="descname">FgRed</code><a class="headerlink" href="#ansictrls.SGR.FgRed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>red</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgGreen">
+<code class="descname">FgGreen</code><a class="headerlink" href="#ansictrls.SGR.FgGreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>green</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgYellow">
+<code class="descname">FgYellow</code><a class="headerlink" href="#ansictrls.SGR.FgYellow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>yellow</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgBlue">
+<code class="descname">FgBlue</code><a class="headerlink" href="#ansictrls.SGR.FgBlue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>blue</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgMagenta">
+<code class="descname">FgMagenta</code><a class="headerlink" href="#ansictrls.SGR.FgMagenta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>magenta</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgCyan">
+<code class="descname">FgCyan</code><a class="headerlink" href="#ansictrls.SGR.FgCyan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>cyan</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgWhite">
+<code class="descname">FgWhite</code><a class="headerlink" href="#ansictrls.SGR.FgWhite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>white</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.FgDefault">
+<code class="descname">FgDefault</code><a class="headerlink" href="#ansictrls.SGR.FgDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreground color <em>default</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgBlack">
+<code class="descname">BgBlack</code><a class="headerlink" href="#ansictrls.SGR.BgBlack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>black</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgRed">
+<code class="descname">BgRed</code><a class="headerlink" href="#ansictrls.SGR.BgRed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>red</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgGreen">
+<code class="descname">BgGreen</code><a class="headerlink" href="#ansictrls.SGR.BgGreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>green</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgYellow">
+<code class="descname">BgYellow</code><a class="headerlink" href="#ansictrls.SGR.BgYellow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>yellow</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgBlue">
+<code class="descname">BgBlue</code><a class="headerlink" href="#ansictrls.SGR.BgBlue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>blue</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgMagenta">
+<code class="descname">BgMagenta</code><a class="headerlink" href="#ansictrls.SGR.BgMagenta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>magenta</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgCyan">
+<code class="descname">BgCyan</code><a class="headerlink" href="#ansictrls.SGR.BgCyan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>cyan</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgWhite">
+<code class="descname">BgWhite</code><a class="headerlink" href="#ansictrls.SGR.BgWhite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>white</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.SGR.BgDefault">
+<code class="descname">BgDefault</code><a class="headerlink" href="#ansictrls.SGR.BgDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background color <em>default</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ansictrls.EraseMode">
+<em class="property">class </em><code class="descclassname">ansictrls.</code><code class="descname">EraseMode</code><a class="headerlink" href="#ansictrls.EraseMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode parameter for <a class="reference internal" href="#ansictrls.erase" title="ansictrls.erase"><code class="xref py py-func docutils literal notranslate"><span class="pre">erase()</span></code></a>.</p>
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.SCRN_END">
+<code class="descname">SCRN_END</code><em class="property"> = 0</em><a class="headerlink" href="#ansictrls.EraseMode.SCRN_END" title="Permalink to this definition">¶</a></dt>
+<dd><p>From cursor to end of screen</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.SCRN_BEGIN">
+<code class="descname">SCRN_BEGIN</code><em class="property"> = 1</em><a class="headerlink" href="#ansictrls.EraseMode.SCRN_BEGIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>From cursor to beginning of screen</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.SCRN_ALL">
+<code class="descname">SCRN_ALL</code><em class="property"> = 2</em><a class="headerlink" href="#ansictrls.EraseMode.SCRN_ALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entire screen</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.SCRN_LINES">
+<code class="descname">SCRN_LINES</code><em class="property"> = 3</em><a class="headerlink" href="#ansictrls.EraseMode.SCRN_LINES" title="Permalink to this definition">¶</a></dt>
+<dd><p>All lines in scrollback buffer</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.LINE_END">
+<code class="descname">LINE_END</code><em class="property"> = 4</em><a class="headerlink" href="#ansictrls.EraseMode.LINE_END" title="Permalink to this definition">¶</a></dt>
+<dd><p>From cursor to end of line</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.LINE_BEGIN">
+<code class="descname">LINE_BEGIN</code><em class="property"> = 5</em><a class="headerlink" href="#ansictrls.EraseMode.LINE_BEGIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>From cursor to beginning of line</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ansictrls.EraseMode.LINE_ALL">
+<code class="descname">LINE_ALL</code><em class="property"> = 6</em><a class="headerlink" href="#ansictrls.EraseMode.LINE_ALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entire line</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.erase">
+<code class="descclassname">ansictrls.</code><code class="descname">erase</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.erase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase all or part of line/screen (cursor position does not change).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference internal" href="#ansictrls.EraseMode" title="ansictrls.EraseMode"><em>EraseMode</em></a>) – what to erase</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.move">
+<code class="descclassname">ansictrls.</code><code class="descname">move</code><span class="sig-paren">(</span><em>row=0</em>, <em>col=0</em>, <em>rel=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the cursor.</p>
+<p>The cursor can be moved relative (<code class="docutils literal notranslate"><span class="pre">rel=True</span></code>) or absolute (<code class="docutils literal notranslate"><span class="pre">rel=False</span></code>).
+If <code class="docutils literal notranslate"><span class="pre">row=0</span></code> the cursor will be moved within the current row; if <code class="docutils literal notranslate"><span class="pre">col=0</span></code>
+the cursor will be moved in the current column. Absolute <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code>
+values start at 1 and cannot be negative. For relative movements negative
+numbers mean to the left or up and positive numbers move the cursor to the
+right or down. If only one of <code class="docutils literal notranslate"><span class="pre">row</span></code> or <code class="docutils literal notranslate"><span class="pre">col</span></code> is relative and the other
+is absolute, the <code class="docutils literal notranslate"><span class="pre">rel</span></code> parameter has to be a tuple: <code class="docutils literal notranslate"><span class="pre">rel=(True,</span> <span class="pre">False)</span></code>
+means relative row and absolute column movement and <code class="docutils literal notranslate"><span class="pre">rel=(False,</span> <span class="pre">True)</span></code>
+absolute row and relative column movement.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># move cursor two columns to the right</span>
+                   <span class="c1"># and leave the row unchanged</span>
+<span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># move cursor to the top left corner</span>
+<span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># move cursor to the beginning of the</span>
+                           <span class="c1"># line five rows up</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>row</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the row</li>
+<li><strong>col</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the column</li>
+<li><strong>rel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>)</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> the cursor will be moved relative to the
+current position</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – if row or col are not of type <code class="docutils literal notranslate"><span class="pre">int</span></code></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – if not at least one of <code class="docutils literal notranslate"><span class="pre">row</span></code> or <code class="docutils literal notranslate"><span class="pre">col</span></code> is not 0,
+or if <code class="docutils literal notranslate"><span class="pre">rel=False</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span></code> or <code class="docutils literal notranslate"><span class="pre">col</span></code> are
+negative</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.home">
+<code class="descclassname">ansictrls.</code><code class="descname">home</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.home" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the cursor to the top left corner of the screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.hide_cursor">
+<code class="descclassname">ansictrls.</code><code class="descname">hide_cursor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.hide_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the cursor.</p>
+<p>This function is a context manager for use in <code class="docutils literal notranslate"><span class="pre">with</span></code> statements.
+It hides the cursor when the context is entered and shows it again
+when the context is exited.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.nestable_save_pos_possible">
+<code class="descclassname">ansictrls.</code><code class="descname">nestable_save_pos_possible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.nestable_save_pos_possible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if nestable <a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_pos()</span></code></a> context is supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if supported</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.save_pos">
+<code class="descclassname">ansictrls.</code><code class="descname">save_pos</code><span class="sig-paren">(</span><em>nestable=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.save_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the cursor position.</p>
+<p>This function is a context manager for use in <code class="docutils literal notranslate"><span class="pre">with</span></code> statements.
+It saves the cursor position when the context is entered and restores the
+cursor to the saved position when the context is exited.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">nestable=False</span></code> the ANSI control sequences <code class="docutils literal notranslate"><span class="pre">ESC[s:</span> <span class="pre">SCP</span> <span class="pre">-</span> <span class="pre">Save</span> <span class="pre">Cursor</span>
+<span class="pre">Position</span></code> and <code class="docutils literal notranslate"><span class="pre">ESC[u:</span> <span class="pre">RCP</span> <span class="pre">-</span> <span class="pre">Restore</span> <span class="pre">Cursor</span> <span class="pre">Position</span></code> will be used. By
+doing so only the saved cursor position of the innermost context will be
+restored.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">nestable=True</span></code> and <a class="reference internal" href="#ansictrls.nestable_save_pos_possible" title="ansictrls.nestable_save_pos_possible"><code class="xref py py-func docutils literal notranslate"><span class="pre">nestable_save_pos_possible()</span></code></a> returns
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, each time the context is entered the position is determined by
+calling <code class="docutils literal notranslate"><span class="pre">getyx()</span></code> from the
+<a class="reference external" href="https://pypi.org/project/term/">term package</a>.
+If the terminal does not support the control sequence
+<code class="docutils literal notranslate"><span class="pre">ESC[6n:</span> <span class="pre">DSR</span> <span class="pre">–</span> <span class="pre">Device</span> <span class="pre">Status</span> <span class="pre">Report</span></code> this is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nestable</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – wether a nestable context should be used</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – if <code class="docutils literal notranslate"><span class="pre">nestable=True</span></code> and nestable context not possible</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.alternate_screen">
+<code class="descclassname">ansictrls.</code><code class="descname">alternate_screen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.alternate_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the <a class="reference external" href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-The-Alternate-Screen-Buffer">alternate screen buffer</a>.</p>
+<p>This function is a context manager for use in <code class="docutils literal notranslate"><span class="pre">with</span></code> statements.
+It switches to the alternate screen buffer when the context is entered and
+back to the normal screen buffer when the context is exited.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.fg">
+<code class="descclassname">ansictrls.</code><code class="descname">fg</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.fg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return SGR parameters for foreground <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – arguments for color</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">color for use with <a class="reference internal" href="#ansictrls.CS.SGR" title="ansictrls.CS.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CS.SGR</span></code></a> or <a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">sgr_print()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.bg">
+<code class="descclassname">ansictrls.</code><code class="descname">bg</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.bg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return SGR parameters for background <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – arguments for color</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">color for use with <a class="reference internal" href="#ansictrls.CS.SGR" title="ansictrls.CS.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CS.SGR</span></code></a> or <a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">sgr_print()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.sgr_string">
+<code class="descclassname">ansictrls.</code><code class="descname">sgr_string</code><span class="sig-paren">(</span><em>*args</em>, <em>reset=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.sgr_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a string with SGR control sequences.</p>
+<p>Those arguments that are <a class="reference internal" href="#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-class docutils literal notranslate"><span class="pre">SGR</span></code></a> attributes or the result of
+the <a class="reference internal" href="#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> or <a class="reference internal" href="#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions will be passed as parameters to
+<a class="reference internal" href="#ansictrls.CS.SGR" title="ansictrls.CS.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CS.SGR</span></code></a>, all others will be converted to strings. Than
+all elements will be concatenated and returned as a string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="n">SGR</span><span class="o">.</span><span class="n">Bold</span><span class="p">,</span> <span class="n">SGR</span><span class="o">.</span><span class="n">FgRed</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ABC&#39;</span> <span class="o">+</span> <span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">SGR</span><span class="o">.</span><span class="n">Reset</span>
+<span class="go">&#39;\x1b[1;31mABC\x1b[0m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sgr_string</span><span class="p">(</span><span class="n">SGR</span><span class="o">.</span><span class="n">Bold</span><span class="p">,</span> <span class="n">SGR</span><span class="o">.</span><span class="n">FgRed</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">)</span>
+<span class="go">&#39;\x1b[1;31mABC\x1b[0m&#39;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> – arguments</li>
+<li><strong>reset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> all SGR attributes will be reset to normal
+at the end of the string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.sgr_print">
+<code class="descclassname">ansictrls.</code><code class="descname">sgr_print</code><span class="sig-paren">(</span><em>*args</em>, <em>reset=True</em>, <em>end='\n'</em>, <em>flush=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.sgr_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a string with SGR control sequences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> – arguments (see: <a class="reference internal" href="#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">sgr_string()</span></code></a>)</li>
+<li><strong>reset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> all SGR attributes will be reset to normal
+at the end of the string</li>
+<li><strong>end</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – see built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li><strong>flush</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – see built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.text">
+<code class="descclassname">ansictrls.</code><code class="descname">text</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plain text without the SGR control sequences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the string with SGR control sequences</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">plain text</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.len_diff">
+<code class="descclassname">ansictrls.</code><code class="descname">len_diff</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.len_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the difference between <code class="docutils literal notranslate"><span class="pre">len(s)</span></code> and <code class="docutils literal notranslate"><span class="pre">len(text(s))</span></code>.</p>
+<p>Useful for adjusting the text on the screen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">sgr_string</span><span class="p">(</span><span class="n">SGR</span><span class="o">.</span><span class="n">Bold</span><span class="p">,</span> <span class="n">SGR</span><span class="o">.</span><span class="n">FgRed</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1234567890&#39;</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># numbering 20 columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">w</span> <span class="o">+</span> <span class="n">len_diff</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%*s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%*s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w</span> <span class="o">+</span> <span class="n">len_diff</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;{:.^</span><span class="si">{width}</span><span class="s1">}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;{:.^</span><span class="si">{width}</span><span class="s1">}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span> <span class="o">+</span> <span class="n">len_diff</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+</pre></div>
+</div>
+<pre style="color:#FFFFFF;background-color:#000000">
+&apos;\x1b[1;31mABC\x1b[0m&apos;
+ABC
+12345678901234567890
+...<font color="#FF5555"><b>ABC</b></font>...
+.........<font color="#FF5555"><b>ABC</b></font>........
+      <font color="#FF5555"><b>ABC</b></font>
+                 <font color="#FF5555"><b>ABC</b></font>
+...<font color="#FF5555"><b>ABC</b></font>...
+........<font color="#FF5555"><b>ABC</b></font>.........
+</pre><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the string with SGR control sequences</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">difference of the length of <code class="docutils literal notranslate"><span class="pre">s</span></code> and the visible text</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.set_attributes_delimiters">
+<code class="descclassname">ansictrls.</code><code class="descname">set_attributes_delimiters</code><span class="sig-paren">(</span><em>start='#['</em>, <em>end=']'</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.set_attributes_delimiters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the delimiters for attributes.</p>
+<p>See: <a class="reference internal" href="introduction.html#ref-intro-spec"><span class="std std-ref">specification string</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – start delimiter</li>
+<li><strong>end</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – end delimiter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – if one of the delimiters is not a string</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – if one of the delimiters is an empty string</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.parse">
+<code class="descclassname">ansictrls.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>spec</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the <a class="reference internal" href="introduction.html#ref-intro-spec"><span class="std std-ref">specification string</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the specification string</li>
+<li><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – if <code class="docutils literal notranslate"><span class="pre">False</span></code> unknown attributes will be ignored</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – if <code class="docutils literal notranslate"><span class="pre">strict=True</span></code> and an unkown attribute
+is encountered</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, Andreas19.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

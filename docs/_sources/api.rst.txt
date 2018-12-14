@@ -1,0 +1,342 @@
+API Reference
+=============
+
+.. currentmodule:: ansictrls
+
+
+.. autosummary::
+   :nosignatures:
+
+   CS
+   SGR
+   EraseMode
+   erase
+   move
+   home
+   hide_cursor
+   nestable_save_pos_possible
+   save_pos
+   alternate_screen
+   fg
+   bg
+   sgr_string
+   sgr_print
+   text
+   len_diff
+   set_attributes_delimiters
+   parse
+
+
+.. class:: CS
+
+   The attributes of this class are :doc:`control sequences <introduction>`.
+   Most of them can take parameters. Their meaning and number is explained
+   in the documentation of the attributes. The default value for
+   :attr:`ED`, :attr:`EL` and :attr:`SGR` is ``0``. For the others it is ``1``.
+
+   The attributes support the modulo operator (``%``); the result is a :class:`str`.
+   The right operand can be a single value or a tuple of values. The attributes
+   can also be used as strings which is the same as using an empty tuple with
+   the ``%`` operator.
+
+   >>> CS.CUU % 3
+   '\x1b[3A'
+   >>> CS.CUP % (4, 2)
+   '\x1b[4;2H'
+   >>> CS.CUP % ()
+   '\x1b[H'
+   >>> str(CS.CUP)
+   '\x1b[H'
+
+   .. attribute:: ICH
+
+      Insert ``N`` space characters
+
+   .. attribute:: CUU
+
+      Move cursor ``N`` rows up
+
+   .. attribute:: CUD
+
+      Move cursor ``N`` rows down
+
+   .. attribute:: CUF
+
+      Move cursor ``N`` columns foreward
+
+   .. attribute:: CUB
+
+      Move cursor ``N`` columns backward
+
+   .. attribute:: CNL
+
+      Move cursor to beginning of line ``N`` rows down
+
+   .. attribute:: CPL
+
+      Move cursor to beginning of line ``N`` rows up
+
+   .. attribute:: CHA
+
+      Move cursor to column ``N`` in current row
+
+   .. attribute:: CUP
+
+      Move cursor to the absolute position ``N,M`` (row ``N``, column ``M``)
+
+   .. attribute:: CHT
+
+      Move cursor ``N`` tab stops forward
+
+   .. attribute:: ED
+
+      Erase in display (cursor position does not change).
+
+      * ``N=0``: From cursor to end of screen
+      * ``N=1``: From cursor to beginning of screen
+      * ``N=2``: Entire screen
+      * ``N=3``: All lines in scrollback buffer
+
+   .. attribute:: EL
+
+      Erase in line (cursor position does not change).
+
+      * ``N=0``: From cursor to end of line
+      * ``N=1``: From cursor to beginning of line
+      * ``N=2``: Entire line
+
+   .. attribute:: IL
+
+      Insert ``N`` rows
+
+   .. attribute:: DL
+
+      Delete ``N`` rows
+
+   .. attribute:: DCH
+
+      Delete ``N`` characters
+
+   .. attribute:: SU
+
+      Scroll page ``N`` rows up (add new lines at bottom)
+
+   .. attribute:: SD
+
+      Scroll page ``N`` rows down (add new lines at top)
+
+   .. attribute:: ECH
+
+      Erase ``N`` characters
+
+   .. attribute:: CBT
+
+      Move cursor ``N`` tab stops backward
+
+   .. attribute:: HPA
+
+      Move cursor to column ``N`` in current row
+
+   .. attribute:: VPA
+
+      Move cursor to row ``N`` in current column
+
+   .. attribute:: SGR
+
+      Select graphic rendition. This control sequence can take
+      `multiple parameters <https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters>`_.
+      It is more convenient to use the attributes of the :class:`SGR` class.
+
+   .. attribute:: SCP
+
+      Save cursor position
+
+   .. attribute:: RCP
+
+      Restore cursor position
+
+   .. attribute:: SCU
+
+      Show cursor
+
+   .. attribute:: HCU
+
+      Hide cursor
+
+   .. attribute:: EAS
+
+      Enable alternate screen buffer
+
+   .. attribute:: DAS
+
+      Disable alternate screen buffer
+
+   .. attribute:: RIS
+
+      Reset screen to initial state
+
+
+.. class:: SGR
+
+   The attributes of this class are `parameters
+   <https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters>`_
+   for :attr:`CS.SGR` and the :func:`sgr_string` and :func:`sgr_print` functions. They support
+   the ``~`` unary operator. For attributes like :attr:`Bold` this means that it will be
+   switched off; for :ref:`colors <ref-intro-colors>` that *bright* colors are used.
+
+   .. attribute:: Bold
+
+      Attribute *bold*
+
+   .. attribute:: Faint
+
+      Attribute *faint*
+
+   .. attribute:: Italic
+
+      Attribute *italic*
+
+   .. attribute:: Underlined
+
+      Attribute *underlined*
+
+   .. attribute:: Blink
+
+      Attribute *blink*
+
+   .. attribute:: Inverse
+
+      Attribute *inverse*
+
+   .. attribute:: Crossedout
+
+      Attribute *crossedout*
+
+   .. attribute:: Overlined
+
+      Attribute *overlined*
+
+   .. attribute:: Reset
+
+      Attribute *reset*
+
+   .. attribute:: FgBlack
+
+      Foreground color *black*
+
+   .. attribute:: FgRed
+
+      Foreground color *red*
+
+   .. attribute:: FgGreen
+
+      Foreground color *green*
+
+   .. attribute:: FgYellow
+
+      Foreground color *yellow*
+
+   .. attribute:: FgBlue
+
+      Foreground color *blue*
+
+   .. attribute:: FgMagenta
+
+      Foreground color *magenta*
+
+   .. attribute:: FgCyan
+
+      Foreground color *cyan*
+
+   .. attribute:: FgWhite
+
+      Foreground color *white*
+
+   .. attribute:: FgDefault
+
+      Foreground color *default*
+
+   .. attribute:: BgBlack
+
+      Background color *black*
+
+   .. attribute:: BgRed
+
+      Background color *red*
+
+   .. attribute:: BgGreen
+
+      Background color *green*
+
+   .. attribute:: BgYellow
+
+      Background color *yellow*
+
+   .. attribute:: BgBlue
+
+      Background color *blue*
+
+   .. attribute:: BgMagenta
+
+      Background color *magenta*
+
+   .. attribute:: BgCyan
+
+      Background color *cyan*
+
+   .. attribute:: BgWhite
+
+      Background color *white*
+
+   .. attribute:: BgDefault
+
+      Background color *default*
+
+
+.. autoclass:: EraseMode
+   :members:
+
+
+.. autofunction:: erase
+
+
+.. autofunction:: move
+
+
+.. autofunction:: home
+
+
+.. autofunction:: hide_cursor
+
+
+.. autofunction:: nestable_save_pos_possible
+
+
+.. autofunction:: save_pos
+
+
+.. autofunction:: alternate_screen
+
+
+.. autofunction:: fg
+
+
+.. autofunction:: bg
+
+
+.. autofunction:: sgr_string
+
+
+.. autofunction:: sgr_print
+
+
+.. autofunction:: text(s)
+
+
+.. autofunction:: len_diff
+
+
+.. autofunction:: set_attributes_delimiters
+
+
+.. autofunction:: parse

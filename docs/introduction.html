@@ -1,0 +1,254 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Introduction &#8212; ansictrls 0.0.10 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ansictrls</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#colors">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specification-strings">Specification strings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="overview.html" title="previous chapter">Overview</a></li>
+      <li>Next: <a href="api.html" title="next chapter">API Reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The core of this library is the <a class="reference internal" href="api.html#ansictrls.CS" title="ansictrls.CS"><code class="xref py py-class docutils literal notranslate"><span class="pre">CS</span></code></a> class. Its attributes are templates
+for ANSI control sequences. The use of this class is very low level. To make it
+a little easier to work with <a class="reference internal" href="api.html#ansictrls.CS.SGR" title="ansictrls.CS.SGR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CS.SGR</span></code></a> sequences for coloring and styling
+characters on the screen there are the <a class="reference internal" href="api.html#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-class docutils literal notranslate"><span class="pre">SGR</span></code></a> class and the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and
+<a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions.</p>
+<p>There are higher level functions, e.g. for <a class="reference internal" href="api.html#ansictrls.move" title="ansictrls.move"><code class="xref py py-func docutils literal notranslate"><span class="pre">moving</span></code></a> the cursor,
+<a class="reference internal" href="api.html#ansictrls.erase" title="ansictrls.erase"><code class="xref py py-func docutils literal notranslate"><span class="pre">erasing</span></code></a> characters on the screen, <a class="reference internal" href="api.html#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">building</span></code></a>,
+and <a class="reference internal" href="api.html#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-func docutils literal notranslate"><span class="pre">printing</span></code></a> strings with SGR sequences.
+For more details see the <a class="reference internal" href="api.html"><span class="doc">API Reference</span></a>.</p>
+<p>Another feature of this library is the possibilty to <a class="reference internal" href="#ref-intro-colors"><span class="std std-ref">specify strings</span></a>
+with a special markup for colors and styles.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape code</a> at Wikipedia</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_sequences">CSI sequences</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters">SGR (Select Graphic Rendition) parameters</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">XTerm Control Sequences</a></dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Functions-using-CSI-_-ordered-by-the-final-character_s_">Functions using CSI</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="colors">
+<span id="ref-intro-colors"></span><h2>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h2>
+<p>The original <a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit">eight ANSI colors</a>
+are attributes in the <a class="reference internal" href="api.html#ansictrls.SGR" title="ansictrls.SGR"><code class="xref py py-class docutils literal notranslate"><span class="pre">SGR</span></code></a> class, e.g. <a class="reference internal" href="api.html#ansictrls.SGR.FgBlack" title="ansictrls.SGR.FgBlack"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SGR.FgBlack</span></code></a> (black foreground) or
+<a class="reference internal" href="api.html#ansictrls.SGR.BgWhite" title="ansictrls.SGR.BgWhite"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SGR.BgWhite</span></code></a> (white background). The bright colors will be used if the attribute
+is prefixed with the <code class="docutils literal notranslate"><span class="pre">~</span></code> unary operator. To reset to the default colors of the terminal
+use <a class="reference internal" href="api.html#ansictrls.SGR.FgDefault" title="ansictrls.SGR.FgDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SGR.FgDefault</span></code></a> and <a class="reference internal" href="api.html#ansictrls.SGR.BgDefault" title="ansictrls.SGR.BgDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SGR.BgDefault</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="mi">31</span>
+<span class="go">&#39;\x1b[31m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">SGR</span><span class="o">.</span><span class="n">FgRed</span>
+<span class="go">&#39;\x1b[31m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="mi">91</span>
+<span class="go">&#39;\x1b[91m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="o">~</span><span class="n">SGR</span><span class="o">.</span><span class="n">FgRed</span>
+<span class="go">&#39;\x1b[91m&#39;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit">8-bit colors</a>
+are supported by using their index in the range [0..255]. It is easier to
+use them with the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and <a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">124</span><span class="p">)</span>
+<span class="go">&#39;\x1b[38;5;124m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">fg</span><span class="p">(</span><span class="mi">124</span><span class="p">)</span>
+<span class="go">&#39;\x1b[38;5;124m&#39;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit">24-bit colors</a>
+are supported with RGB tuples, each of the three values in the range [0..255].
+It is easier to use them with the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and <a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions which can also use
+HTML-style colors, e.g. #FF0000.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;\x1b[48;2;255;0;0m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">bg</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;\x1b[48;2;255;0;0m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">bg</span><span class="p">(</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">)</span>
+<span class="go">&#39;\x1b[48;2;255;0;0m&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specification-strings">
+<span id="ref-intro-spec"></span><h2>Specification strings<a class="headerlink" href="#specification-strings" title="Permalink to this headline">¶</a></h2>
+<p>In a specification string the attributes are separated by <code class="docutils literal notranslate"><span class="pre">;</span></code> and enclosed in the
+delimiters <code class="docutils literal notranslate"><span class="pre">#[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>. The delimiters can be changed with
+<a class="reference internal" href="api.html#ansictrls.set_attributes_delimiters" title="ansictrls.set_attributes_delimiters"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_attributes_delimiters()</span></code></a>. The following attributes are supported (they can
+be disabled by prefixing them with <code class="docutils literal notranslate"><span class="pre">not</span></code>):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>bd</td>
+<td>bold</td>
+</tr>
+<tr class="row-even"><td>ft</td>
+<td>faint</td>
+</tr>
+<tr class="row-odd"><td>it</td>
+<td>italic</td>
+</tr>
+<tr class="row-even"><td>ul</td>
+<td>underlined</td>
+</tr>
+<tr class="row-odd"><td>bk</td>
+<td>blink</td>
+</tr>
+<tr class="row-even"><td>iv</td>
+<td>inverse</td>
+</tr>
+<tr class="row-odd"><td>co</td>
+<td>crossed-out</td>
+</tr>
+<tr class="row-even"><td>ol</td>
+<td>overlined</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#ref-intro-colors"><span class="std std-ref">Colors</span></a> start with <code class="docutils literal notranslate"><span class="pre">fg</span></code> (foreground color) or
+<code class="docutils literal notranslate"><span class="pre">bg</span></code> (background color) followed by a COLOR. COLOR can be given as:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>name</td>
+<td><code class="docutils literal notranslate"><span class="pre">black,</span> <span class="pre">red,</span> <span class="pre">green,</span> <span class="pre">yellow,</span> <span class="pre">blue,</span> <span class="pre">magenta,</span> <span class="pre">cyan,</span> <span class="pre">white</span></code>
+for the original ANSI colors, optionally prefixed with
+<code class="docutils literal notranslate"><span class="pre">bright</span></code> for using bright colors</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">default</span></code></td>
+<td>for using the default foreground or background colors of
+the terminal</td>
+</tr>
+<tr class="row-odd"><td>integer</td>
+<td>the index of a 8-bit color in the range [0..255]</td>
+</tr>
+<tr class="row-even"><td>3 integers</td>
+<td>RGB values each in the range [0..255], separated by <code class="docutils literal notranslate"><span class="pre">,</span></code></td>
+</tr>
+<tr class="row-odd"><td>HTML-style</td>
+<td>RGB values in hexdecimal, e.g. #FF0000</td>
+</tr>
+</tbody>
+</table>
+<p>To reset all attributes to normal use <code class="docutils literal notranslate"><span class="pre">reset</span></code> or an empty string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;#[bd;fg red;bg 0,255,0]Hello, #[not bd;fg bright blue]World!#[]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&#39;\x1b[1;31;48;2;0;255;0mHello, \x1b[22;94mWorld!\x1b[0m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre style="color:#FFFFFF;background-color:#000000">
+<span style="background-color:#00FF00"><font color="#FF5555"><b>Hello, </b></font></span><span style="background-color:#00FF00"><font color="#5555FF">World!</font></span>
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, Andreas19.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

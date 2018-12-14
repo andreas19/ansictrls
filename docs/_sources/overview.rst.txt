@@ -1,0 +1,30 @@
+Overview
+========
+
+Library for working with ANSI Escape Sequences in a terminal.
+
+
+Installation
+------------
+
+.. highlight:: none
+
+::
+
+# pip install ansictrls
+
+
+Dependencies
+------------
+
+- `term >= 2.2 <https://pypi.org/project/term/>`_
+
+
+Links
+-----
+
+- PyPI: https://pypi.org/project/ansictrls/
+- GitHub: https://github.com/andreas19/ansictrls/
+
+
+.. include:: ../../CHANGELOG.md

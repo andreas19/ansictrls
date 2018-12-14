@@ -1,0 +1,116 @@
+.. currentmodule:: ansictrls
+
+Introduction
+============
+
+The core of this library is the :class:`CS` class. Its attributes are templates
+for ANSI control sequences. The use of this class is very low level. To make it
+a little easier to work with :attr:`CS.SGR` sequences for coloring and styling
+characters on the screen there are the :class:`SGR` class and the :func:`fg` and
+:func:`bg` functions.
+
+There are higher level functions, e.g. for :func:`moving <move>` the cursor, 
+:func:`erasing <erase>` characters on the screen, :func:`building <sgr_string>`,
+and :func:`printing <sgr_print>` strings with SGR sequences.
+For more details see the :doc:`API Reference <api>`.
+
+Another feature of this library is the possibilty to :ref:`specify strings <ref-intro-colors>`
+with a special markup for colors and styles.
+
+.. seealso::
+   * `ANSI escape code <https://en.wikipedia.org/wiki/ANSI_escape_code>`_ at Wikipedia
+      * `CSI sequences <https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_sequences>`_
+      * `SGR (Select Graphic Rendition) parameters <https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters>`_
+   * `XTerm Control Sequences <https://invisible-island.net/xterm/ctlseqs/ctlseqs.html>`_
+      * `Functions using CSI <https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Functions-using-CSI-_-ordered-by-the-final-character_s_>`_
+
+
+.. _ref-intro-colors:
+
+Colors
+------
+
+The original `eight ANSI colors <https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit>`_
+are attributes in the :class:`SGR` class, e.g. :attr:`SGR.FgBlack` (black foreground) or
+:attr:`SGR.BgWhite` (white background). The bright colors will be used if the attribute
+is prefixed with the ``~`` unary operator. To reset to the default colors of the terminal
+use :attr:`SGR.FgDefault` and :attr:`SGR.BgDefault`.
+
+>>> CS.SGR % 31
+'\x1b[31m'
+>>> CS.SGR % SGR.FgRed
+'\x1b[31m'
+>>> CS.SGR % 91
+'\x1b[91m'
+>>> CS.SGR % ~SGR.FgRed
+'\x1b[91m'
+
+`8-bit colors <https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit>`_
+are supported by using their index in the range [0..255]. It is easier to
+use them with the :func:`fg` and :func:`bg` functions.
+
+>>> CS.SGR % (38, 5, 124)
+'\x1b[38;5;124m'
+>>> CS.SGR % fg(124)
+'\x1b[38;5;124m'
+
+`24-bit colors <https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit>`_
+are supported with RGB tuples, each of the three values in the range [0..255].
+It is easier to use them with the :func:`fg` and :func:`bg` functions which can also use
+HTML-style colors, e.g. #FF0000.
+
+>>> CS.SGR % (48, 2, 255, 0, 0)
+'\x1b[48;2;255;0;0m'
+>>> CS.SGR % bg(255, 0, 0)
+'\x1b[48;2;255;0;0m'
+>>> CS.SGR % bg('#FF0000')
+'\x1b[48;2;255;0;0m'
+
+
+.. _ref-intro-spec:
+
+Specification strings
+---------------------
+
+In a specification string the attributes are separated by ``;`` and enclosed in the
+delimiters ``#[`` and ``]``. The delimiters can be changed with
+:func:`set_attributes_delimiters`. The following attributes are supported (they can
+be disabled by prefixing them with ``not``):
+
+=====  ===========
+bd     bold
+ft     faint
+it     italic
+ul     underlined
+bk     blink
+iv     inverse
+co     crossed-out
+ol     overlined
+=====  ===========
+
+:ref:`Colors <ref-intro-colors>` start with ``fg`` (foreground color) or
+``bg`` (background color) followed by a COLOR. COLOR can be given as:
+
+===========  =========================================================
+name         ``black, red, green, yellow, blue, magenta, cyan, white``
+             for the original ANSI colors, optionally prefixed with
+             ``bright`` for using bright colors
+``default``  for using the default foreground or background colors of
+             the terminal
+integer      the index of a 8-bit color in the range [0..255]
+3 integers   RGB values each in the range [0..255], separated by ``,``
+HTML-style   RGB values in hexdecimal, e.g. #FF0000
+===========  =========================================================
+
+To reset all attributes to normal use ``reset`` or an empty string.
+
+>>> s = '#[bd;fg red;bg 0,255,0]Hello, #[not bd;fg bright blue]World!#[]'
+>>> parse(s)
+'\x1b[1;31;48;2;0;255;0mHello, \x1b[22;94mWorld!\x1b[0m'
+>>> print(_)
+
+.. raw:: html
+
+   <pre style="color:#FFFFFF;background-color:#000000">
+   <span style="background-color:#00FF00"><font color="#FF5555"><b>Hello, </b></font></span><span style="background-color:#00FF00"><font color="#5555FF">World!</font></span>
+   </pre>

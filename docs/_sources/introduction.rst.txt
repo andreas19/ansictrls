@@ -46,7 +46,7 @@ use :attr:`SGR.FgDefault` and :attr:`SGR.BgDefault`.
 '\x1b[91m'
 
 `8-bit colors <https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit>`_
-are supported by using their index in the range [0..255]. It is easier to
+are supported by using their index in the interval [0..255]. It is easier to
 use them with the :func:`fg` and :func:`bg` functions.
 
 >>> CS.SGR % (38, 5, 124)
@@ -55,7 +55,7 @@ use them with the :func:`fg` and :func:`bg` functions.
 '\x1b[38;5;124m'
 
 `24-bit colors <https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit>`_
-are supported with RGB tuples, each of the three values in the range [0..255].
+are supported with RGB tuples, each of the three values in the interval [0..255].
 It is easier to use them with the :func:`fg` and :func:`bg` functions which can also use
 HTML-style colors, e.g. #FF0000.
 
@@ -97,8 +97,8 @@ name         ``black, red, green, yellow, blue, magenta, cyan, white``
              ``bright`` for using bright colors
 ``default``  for using the default foreground or background colors of
              the terminal
-integer      the index of a 8-bit color in the range [0..255]
-3 integers   RGB values each in the range [0..255], separated by ``,``
+integer      the index of a 8-bit color in the interval [0..255]
+3 integers   RGB values each in the interval [0..255], separated by ``,``
 HTML-style   RGB values in hexdecimal, e.g. #FF0000
 ===========  =========================================================
 

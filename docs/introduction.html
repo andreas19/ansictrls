@@ -132,7 +132,7 @@ use <a class="reference internal" href="api.html#ansictrls.SGR.FgDefault" title=
 </pre></div>
 </div>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit">8-bit colors</a>
-are supported by using their index in the range [0..255]. It is easier to
+are supported by using their index in the interval [0..255]. It is easier to
 use them with the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and <a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">124</span><span class="p">)</span>
 <span class="go">&#39;\x1b[38;5;124m&#39;</span>
@@ -141,7 +141,7 @@ use them with the <a class="reference internal" href="api.html#ansictrls.fg" tit
 </pre></div>
 </div>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit">24-bit colors</a>
-are supported with RGB tuples, each of the three values in the range [0..255].
+are supported with RGB tuples, each of the three values in the interval [0..255].
 It is easier to use them with the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and <a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions which can also use
 HTML-style colors, e.g. #FF0000.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -195,8 +195,8 @@ be disabled by prefixing them with <code class="docutils literal notranslate"><s
 <code class="docutils literal notranslate"><span class="pre">bg</span></code> (background color) followed by a COLOR. COLOR can be given as:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
-<col width="84%" />
+<col width="15%" />
+<col width="85%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>name</td>
@@ -209,10 +209,10 @@ for the original ANSI colors, optionally prefixed with
 the terminal</td>
 </tr>
 <tr class="row-odd"><td>integer</td>
-<td>the index of a 8-bit color in the range [0..255]</td>
+<td>the index of a 8-bit color in the interval [0..255]</td>
 </tr>
 <tr class="row-even"><td>3 integers</td>
-<td>RGB values each in the range [0..255], separated by <code class="docutils literal notranslate"><span class="pre">,</span></code></td>
+<td>RGB values each in the interval [0..255], separated by <code class="docutils literal notranslate"><span class="pre">,</span></code></td>
 </tr>
 <tr class="row-odd"><td>HTML-style</td>
 <td>RGB values in hexdecimal, e.g. #FF0000</td>
@@ -242,7 +242,7 @@ the terminal</td>
       &copy;2018, Andreas19.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
     </div>

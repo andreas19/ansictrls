@@ -157,7 +157,7 @@ def len_diff(s):
        </pre>
 
     :param str s: the string with SGR control sequences
-    :return: difference of the length of ``s`` and the visible text
+    :return: difference of the lengths of ``s`` and the visible text
     :rtype: int
     """
     return len(s) - len(text(s))
@@ -207,7 +207,5 @@ def sgr_print(*args, reset=True, end='\n', flush=False):
                        at the end of the string
     :param str end: see built-in function :func:`print`
     :param bool flush: see built-in function :func:`print`
-    :return: a string
-    :rtype: str
     """
     print(sgr_string(args, reset), sep='', end=end, flush=flush)

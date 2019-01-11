@@ -208,4 +208,4 @@ def sgr_print(*args, reset=True, end='\n', flush=False):
     :param str end: see built-in function :func:`print`
     :param bool flush: see built-in function :func:`print`
     """
-    print(sgr_string(args, reset), sep='', end=end, flush=flush)
+    print(sgr_string(*args, reset=reset), sep='', end=end, flush=flush)

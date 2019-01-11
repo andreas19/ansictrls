@@ -3,7 +3,7 @@ from .ctrls import (CS, EraseMode, move, home, erase, hide_cursor,
 from .sgr import SGR, len_diff, text, fg, bg, sgr_string, sgr_print
 from .spec import set_attributes_delimiters, parse
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 __all__ = ['CS',
            'SGR',

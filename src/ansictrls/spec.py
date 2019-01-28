@@ -45,6 +45,8 @@ def parse(spec, strict=False):
 
     :param str spec: the specification string
     :param bool strict: if ``False`` unknown attributes will be ignored
+    :return: string with SGR control sequences
+    :rtype: str
     :raises ValueError: if ``strict=True`` and an unkown attribute
                         is encountered
     """

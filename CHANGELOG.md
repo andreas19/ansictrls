@@ -1,6 +1,9 @@
 History
 -------
 
+ - HTML-style colors can now use the short form,
+   i. e. #F00 instead of #FF0000
+
 **2019-01-11 (0.1.1)**
  - Bugfix: sgr_print() was broken
 

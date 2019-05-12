@@ -143,7 +143,7 @@ use them with the <a class="reference internal" href="api.html#ansictrls.fg" tit
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit">24-bit colors</a>
 are supported with RGB tuples, each of the three values in the interval [0..255].
 It is easier to use them with the <a class="reference internal" href="api.html#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-func docutils literal notranslate"><span class="pre">fg()</span></code></a> and <a class="reference internal" href="api.html#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-func docutils literal notranslate"><span class="pre">bg()</span></code></a> functions which can also use
-HTML-style colors, e.g. #FF0000.</p>
+HTML-style colors, e.g. #FF0000 or #F00.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">&#39;\x1b[48;2;255;0;0m&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">CS</span><span class="o">.</span><span class="n">SGR</span> <span class="o">%</span> <span class="n">bg</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -215,7 +215,7 @@ the terminal</td>
 <td>RGB values each in the interval [0..255], separated by <code class="docutils literal notranslate"><span class="pre">,</span></code></td>
 </tr>
 <tr class="row-odd"><td>HTML-style</td>
-<td>RGB values in hexdecimal, e.g. #FF0000</td>
+<td>RGB values in hexdecimal, e.g. #FF0000 or #F00</td>
 </tr>
 </tbody>
 </table>
@@ -239,7 +239,7 @@ the terminal</td>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, Andreas19.
+      &copy;2018, Andreas Suhre.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>

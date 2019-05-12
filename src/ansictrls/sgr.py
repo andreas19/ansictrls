@@ -88,9 +88,13 @@ def _color(*args):
         if len(args) == 1:
             if isinstance(args[0], int) and 0 <= args[0] <= 255:
                 return 5, args[0]
-            elif len(args[0]) == 7 and args[0].startswith('#'):
-                return (2,) + tuple(int(args[0][i:i + 2], 16)
-                                    for i in range(1, 7, 2))
+            elif len(args[0]) in (4, 7) and args[0].startswith('#'):
+                if len(args[0]) == 4:
+                    s = ''.join(x + x for x in args[0][1:])
+                else:
+                    s = args[0][1:]
+                return (2,) + tuple(int(s[i:i + 2], 16)
+                                    for i in range(0, len(s), 2))
         elif len(args) == 3 and all(0 <= x <= 255 for x in args):
             return (2,) + args
     raise ValueError('Invalid arguments for color: %s' % str(args))
@@ -201,6 +205,8 @@ def sgr_string(*args, reset=True):
 
 def sgr_print(*args, reset=True, end='\n', flush=False):
     """Print a string with SGR control sequences.
+
+    See function :func:`sgr_string`.
 
     :param args: arguments (see: :func:`sgr_string`)
     :param bool reset: if ``True`` all SGR attributes will be reset to normal

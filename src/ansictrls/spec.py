@@ -93,8 +93,12 @@ def _get_color(s):
         return SGR.FgDefault if is_fg else SGR.BgDefault
     with suppress(Exception):
         if s.startswith('#'):
-            if len(s) == 7:
-                t = tuple(int(s[i:i + 2], 16) for i in range(1, 7, 2))
+            if len(s) in (4, 7):
+                if len(s) == 4:
+                    s = ''.join(x + x for x in s[1:])
+                else:
+                    s = s[1:]
+                t = tuple(int(s[i:i + 2], 16) for i in range(0, len(s), 2))
                 if all(0 <= n for n in t):
                     return fg(*t) if is_fg else bg(*t)
         elif ',' in s:

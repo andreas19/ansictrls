@@ -1,4 +1,4 @@
-# ansictrls
+# AnsiCtrls
 
 Library for working with ANSI Escape Sequences in a terminal.
 

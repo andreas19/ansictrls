@@ -1,6 +1,8 @@
 History
 -------
 
+ - Add function clear()
+
 **2019-05-12 (0.2.0)**
  - HTML-style colors can now use the short form,
    i. e. #F00 instead of #FF0000

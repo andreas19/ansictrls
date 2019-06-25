@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>API Reference &#8212; ansictrls 0.2.0 documentation</title>
+    <title>API Reference &#8212; AnsiCtrls 0.2.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,7 +29,7 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">ansictrls</a></h1>
+<h1 class="logo"><a href="index.html">AnsiCtrls</a></h1>
 
 
 
@@ -101,40 +101,43 @@
 <tr class="row-even"><td><a class="reference internal" href="#ansictrls.home" title="ansictrls.home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">home</span></code></a></td>
 <td>Move the cursor to the top left corner of the screen.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.hide_cursor" title="ansictrls.hide_cursor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hide_cursor</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.clear" title="ansictrls.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a></td>
+<td>Clear screen.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.hide_cursor" title="ansictrls.hide_cursor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hide_cursor</span></code></a></td>
 <td>Hide the cursor.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.nestable_save_pos_possible" title="ansictrls.nestable_save_pos_possible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nestable_save_pos_possible</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.nestable_save_pos_possible" title="ansictrls.nestable_save_pos_possible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nestable_save_pos_possible</span></code></a></td>
 <td>Return if nestable <a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_pos()</span></code></a> context is supported.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_pos</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.save_pos" title="ansictrls.save_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_pos</span></code></a></td>
 <td>Save the cursor position.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.alternate_screen" title="ansictrls.alternate_screen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alternate_screen</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.alternate_screen" title="ansictrls.alternate_screen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alternate_screen</span></code></a></td>
 <td>Use the <a class="reference external" href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-The-Alternate-Screen-Buffer">alternate screen buffer</a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fg</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.fg" title="ansictrls.fg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fg</span></code></a></td>
 <td>Return SGR parameters for foreground <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bg</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.bg" title="ansictrls.bg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bg</span></code></a></td>
 <td>Return SGR parameters for background <a class="reference internal" href="introduction.html#ref-intro-colors"><span class="std std-ref">color</span></a>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_string</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.sgr_string" title="ansictrls.sgr_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_string</span></code></a></td>
 <td>Build a string with SGR control sequences.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_print</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.sgr_print" title="ansictrls.sgr_print"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sgr_print</span></code></a></td>
 <td>Print a string with SGR control sequences.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.text" title="ansictrls.text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.text" title="ansictrls.text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code></a></td>
 <td>Return the plain text without the SGR control sequences.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.len_diff" title="ansictrls.len_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">len_diff</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.len_diff" title="ansictrls.len_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">len_diff</span></code></a></td>
 <td>Return the difference between <code class="docutils literal notranslate"><span class="pre">len(s)</span></code> and <code class="docutils literal notranslate"><span class="pre">len(text(s))</span></code>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.set_attributes_delimiters" title="ansictrls.set_attributes_delimiters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_attributes_delimiters</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ansictrls.set_attributes_delimiters" title="ansictrls.set_attributes_delimiters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_attributes_delimiters</span></code></a></td>
 <td>Set the delimiters for attributes.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ansictrls.parse" title="ansictrls.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ansictrls.parse" title="ansictrls.parse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse</span></code></a></td>
 <td>Parse the <a class="reference internal" href="introduction.html#ref-intro-spec"><span class="std std-ref">specification string</span></a>.</td>
 </tr>
 </tbody>
@@ -630,6 +633,22 @@ negative</li>
 <dt id="ansictrls.home">
 <code class="descclassname">ansictrls.</code><code class="descname">home</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.home" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the cursor to the top left corner of the screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansictrls.clear">
+<code class="descclassname">ansictrls.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>reset=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ansictrls.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear screen.</p>
+<p>Erase entire screen and move the cursor to the top left corner
+of the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – if set to <cite>True</cite> the line buffer will be erased too</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">

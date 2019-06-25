@@ -149,6 +149,20 @@ def home():
     _print(CS.CUP)
 
 
+def clear(reset=False):
+    """Clear screen.
+
+    Erase entire screen and move the cursor to the top left corner
+    of the screen.
+
+    :param bool reset: if set to `True` the line buffer will be erased too
+    """
+    erase(EraseMode.SCRN_ALL)
+    home()
+    if reset:
+        erase(EraseMode.SCRN_LINES)
+
+
 class EraseMode(Enum):
     """Mode parameter for :func:`erase`."""
 

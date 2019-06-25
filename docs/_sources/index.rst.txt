@@ -1,4 +1,4 @@
-ansictrls |version|
+AnsiCtrls |version|
 ===================
 
 Contents

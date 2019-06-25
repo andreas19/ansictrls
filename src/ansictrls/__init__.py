@@ -1,4 +1,4 @@
-from .ctrls import (CS, EraseMode, move, home, erase, hide_cursor,
+from .ctrls import (CS, EraseMode, move, home, clear, erase, hide_cursor,
                     save_pos, alternate_screen, nestable_save_pos_possible)
 from .sgr import SGR, len_diff, text, fg, bg, sgr_string, sgr_print
 from .spec import set_attributes_delimiters, parse
@@ -11,6 +11,7 @@ __all__ = ['CS',
            'erase',
            'move',
            'home',
+           'clear',
            'hide_cursor',
            'nestable_save_pos_possible',
            'save_pos',

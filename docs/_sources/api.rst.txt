@@ -13,6 +13,7 @@ API Reference
    erase
    move
    home
+   clear
    hide_cursor
    nestable_save_pos_possible
    save_pos
@@ -304,6 +305,9 @@ API Reference
 
 
 .. autofunction:: home
+
+
+.. autofunction:: clear
 
 
 .. autofunction:: hide_cursor

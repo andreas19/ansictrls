@@ -17,7 +17,7 @@ Installation
 Dependencies
 ------------
 
-- `term >= 2.2 <https://pypi.org/project/term/>`_
+.. include:: dependencies.txt
 
 
 Links

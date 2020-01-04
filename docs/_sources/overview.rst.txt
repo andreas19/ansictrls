@@ -14,10 +14,10 @@ Installation
 # pip install ansictrls
 
 
-Dependencies
+Requirements
 ------------
 
-.. include:: dependencies.txt
+.. include:: requirements.incl
 
 
 Links
